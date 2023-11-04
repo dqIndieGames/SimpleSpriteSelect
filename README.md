@@ -30,5 +30,7 @@
 
 ## SerializedObjectHelperUtils
   Help you find detail depend.
+  
   Unity Assets AssetDatabase.GetDependencies() Only Get the baseAsset(Such as Texture, but not sprite).
+  
   Use SerializedObjectHelperUtils Can Find detail Object Dependencies.
