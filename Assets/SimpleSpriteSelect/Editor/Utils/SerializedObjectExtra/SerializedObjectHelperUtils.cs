@@ -15,6 +15,17 @@ public static class SerializedObjectHelperUtils
 
         findedHashSet.Clear();
         
+        GetAllDependAssetsStart(obj, resultList);
+        
+    }
+    
+    
+    
+    private static void GetAllDependAssetsStart<T>(Object obj, List<T> resultList)
+        where T : Object
+    {
+
+        
         switch (obj)
         {
             case GameObject gameObject:
@@ -55,7 +66,7 @@ public static class SerializedObjectHelperUtils
             }
 
 
-            GetAllDependAssets(component, resultList);
+            GetAllDependAssetsStart(component, resultList);
 
         }
         
@@ -66,6 +77,12 @@ public static class SerializedObjectHelperUtils
         where T : Object
     {
        
+        // check finded
+        if (!findedHashSet.Add(obj))
+        {
+            return;
+        }
+        
         var serializedObject = new SerializedObject(obj);
         
         
@@ -93,7 +110,7 @@ public static class SerializedObjectHelperUtils
                 }
                 else
                 {
-                    GetAllDependAssets(property.objectReferenceValue, resultList);
+                    GetAllDependAssetsStart(property.objectReferenceValue, resultList);
                 }
             }
         }

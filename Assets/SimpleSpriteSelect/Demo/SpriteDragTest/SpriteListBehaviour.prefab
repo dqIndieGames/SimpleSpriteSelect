@@ -44,4 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9550a5ec5f2fd3e44bf3f388657ceac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteList: []
+  spriteList:
+  - {fileID: -1818584816, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: -2061715535, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: -1004022116, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: 109263268, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: 829465713, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: -212670014, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: -776789061, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: 979163657, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: -444935751, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: 1822210353, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}
+  - {fileID: 85206195, guid: fdebc19e2d432a64ab02fa13fe431100, type: 3}

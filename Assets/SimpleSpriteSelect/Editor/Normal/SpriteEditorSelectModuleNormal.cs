@@ -35,6 +35,11 @@ public class SpriteEditorSelectModuleNormal : SpriteEditorSelectModuleBase
         {
             return;
         }
+
+        if (isSingleSpriteDragAndDrop)
+        {
+            return;
+        }
         
         // check left mouse down
         if (!Event.current.isMouse || Event.current.button != 0 || Event.current.type != EventType.MouseDown)

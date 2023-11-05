@@ -28,9 +28,10 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
 
     
     protected List<SpriteRect> selectionSpriteRectList = new();
-    
-    
-    private bool isSingleSpriteDragAndDrop = false;
+
+
+    protected bool isSingleSpriteDragAndDrop { get; private set; }
+
     
     
     
