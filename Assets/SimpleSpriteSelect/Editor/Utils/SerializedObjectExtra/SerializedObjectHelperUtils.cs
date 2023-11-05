@@ -72,7 +72,7 @@ public static class SerializedObjectHelperUtils
         
         // loop serializedObject
         var property = serializedObject.GetIterator();
-        while (property.NextVisible(true))
+        while (property.Next(true))
         {
             if (property.propertyType == SerializedPropertyType.ObjectReference)
             {
