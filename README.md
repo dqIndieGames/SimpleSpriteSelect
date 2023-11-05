@@ -1,4 +1,4 @@
-# SimpleSpriteSelect
+# Unity SimpleSpriteSelect
 
 SimpleSpriteSelect is sprite editor extend.To Find Reference from sprite.And Fast Drag And Drop.
 
