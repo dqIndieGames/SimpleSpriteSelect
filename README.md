@@ -2,6 +2,9 @@
 
 SimpleSpriteSelect is sprite editor extend.To Find Reference from sprite.And Fast Drag And Drop.
 
+* [English Wiki](https://dqindiegames.github.io/unityplugin/2023/11/05/simplespriteselect.html)
+* [中文 Wiki](https://dqindiegames.github.io/zh_cn/unityplugin/2023/11/05/simplespriteselect.html)
+
 ## How To Open
 ![image](https://github.com/dqIndieGames/SimpleSpriteSelect/assets/17854132/c1b36ad0-9cb6-4e44-b0c8-8112bc7967a6)
 
