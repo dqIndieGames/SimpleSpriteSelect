@@ -64,10 +64,36 @@ public class SpriteEditorSelectModuleNormal : SpriteEditorSelectModuleBase
         
     }
 
+    protected override void OnSelectSelectionSpriteBtnClick()
+    {
+        var targetList = selectionSpriteRectList;
+        var baseList = selectingSpriteList;
+        baseList.Clear();
+
+
+        foreach (var spriteRect in targetList)
+        {
+            // get sprite
+            var sprite = GetSprite(spriteRect);
+            if (sprite == null)
+            {
+                continue;
+            }
+            // add to baselist
+            baseList.Add(sprite);
+        }
+        
+    }
+
     private void DrawSelectionSpriteRect()
     {
         foreach (var sprite in selectingSpriteList)
         {
+            if (sprite == null)
+            {
+                continue;
+            }
+            
             var spriteRect = GetSpriteRect(sprite);
             
             Handles.color = Color.red;
@@ -82,14 +108,31 @@ public class SpriteEditorSelectModuleNormal : SpriteEditorSelectModuleBase
         
         DrawSelectingSpriteListGUI();
     }
-    
-    
+
+    protected override float DoToolbarGUIInternal(in Rect drawArea)
+    {
+        var startX = base.DoToolbarGUIInternal(in drawArea);
+
+        if (true)
+        {
+            var rect = GetFromDrawRect(in drawArea, ref startX, 100);
+
+            if (GUI.Button(rect, "SetToSelection"))
+            {
+                Selection.objects = selectingSpriteList.ToArray();
+            }
+            
+        }
+        
+        
+        return startX;
+    }
 
 
     private void DrawSelectingSpriteListGUI()
     {
         
-        GUILayout.BeginArea(new Rect(0, 0, 200, 500));
+        GUILayout.BeginArea(new Rect(0, postGUIY, 200, 500));
         
         
         drawListSimpleHelperGUI.OnGUI();
@@ -108,7 +151,11 @@ public class SpriteEditorSelectModuleNormal : SpriteEditorSelectModuleBase
         // check mouse Pos in spriteRect
         foreach (var sprite in selectingSpriteList)
         {
-          
+            if (sprite == null)
+            {
+                continue;
+            }
+            
             var spriteRect = GetSpriteRect(sprite);
                 
             // check mouse pos in spriteRect
@@ -145,7 +192,7 @@ public class SpriteEditorSelectModuleNormal : SpriteEditorSelectModuleBase
     public override void OnModuleActivate()
     {
         base.OnModuleActivate();
-        
+        selectingSpriteList.Clear();
         drawListSimpleHelperGUI.Init(selectingSpriteList, "Selecting Sprite List");
     }
 }

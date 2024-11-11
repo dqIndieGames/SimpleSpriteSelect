@@ -32,8 +32,8 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
 
     protected bool isSingleSpriteDragAndDrop { get; private set; }
 
-    
-    
+
+    protected float postGUIY = 0;
     
     public override bool CanBeActivated()
     {
@@ -128,7 +128,6 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
         
         
     }
-    
     
     
     
@@ -393,6 +392,10 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
             }
             
             GUI.color = oldColor;
+            
+          
+            
+            
         }
 
         
@@ -404,6 +407,8 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
 
     public override void OnModuleActivate()
     {
+        
+        
         selectionSpriteRectList.Clear();
         isDragging = false;
         
@@ -421,7 +426,7 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
         }
         
 
-
+        Selection.selectionChanged -= OnSelectionChanged;
         Selection.selectionChanged += OnSelectionChanged;
     }
 
@@ -501,8 +506,17 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
 
     public override void DoPostGUI()
     {
-        
+        if (GUILayout.Button("SelectSelectionSprite", GUILayout.MaxWidth(200)))
+        {
+            OnSelectSelectionSpriteBtnClick();
+        }
+
+        postGUIY = 30;
     }
+    
+    
+
+    protected abstract void OnSelectSelectionSpriteBtnClick();
 
     public override bool ApplyRevert(bool apply)
     {
