@@ -191,6 +191,20 @@ public abstract class SpriteEditorSelectModuleBase : SpriteEditorModuleBase
                     {
                         OnMouseBtnUp();
                     }
+                    else
+                    {
+                        var startPosition = Handles.inverseMatrix.MultiplyPoint(currentEvent.mousePosition);
+                        foreach (var spriteRect in spriteRectList)
+                        {
+                            var spriteRectRect = spriteRect.rect;
+                            if (spriteRectRect.Contains(startPosition))
+                            {
+                                var sprite = GetSprite(spriteRect);
+                                OnSelectSprite(new List<Sprite> { sprite });
+                                break;
+                            }
+                        }
+                    }
                     drawBoxRect = new Rect();
                     // 完成拖动
                     isDragging = false;
